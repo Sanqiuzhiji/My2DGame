@@ -1,0 +1,46 @@
+#include "main.h"
+#include "../include/IMAGE_PR.h"
+
+void drawMainPage()
+{
+	// ³õÊ¼»¯´°¿Ú
+	initgraph(screenWidth, screenHeight);
+
+	int viewportX = 0, viewportY = 0, MOVE_STEP = 10;
+	int  MAP_WIDTH = screenWidth * 3, MAP_HEIGHT = screenHeight * 3;
+	int  VIEW_WIDTH = screenWidth, VIEW_HEIGHT = screenHeight;
+	// ¼ÓÔØÍ¼Ïñ
+	IMAGE_PR gamebackground_img(_T(".\\resources\\images\\game_background.png"));
+	gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2, screenHeight * 3 / 2);
+
+	while (true) {
+		if (_kbhit())
+		{
+			BeginBatchDraw();  // ¿ªÊ¼Ë«»º³å
+			cleardevice();     // ÇåÆÁ£¬·ÀÖ¹»­Ãæ²ÐÁô
+			char key = _getch();
+			switch (key)
+			{
+			case 72: // ¡ü
+				viewportY += MOVE_STEP;
+				break;
+			case 80: // ¡ý
+				viewportY -= MOVE_STEP;
+				break;
+			case 75: // ¡û
+				viewportX += MOVE_STEP;
+				break;
+			case 77: // ¡ú 
+				viewportX -= MOVE_STEP;
+				break;
+			case 27: // ESC ÍË³ö
+				closegraph();
+			}
+			// ¿ªÊ¼Ë«»º³å
+			gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2 + viewportX, screenHeight * 3 / 2 + viewportY);
+			EndBatchDraw(); // ½áÊøË«»º³å£¬Ë¢ÐÂÆÁÄ»
+		}
+		/*Sleep(10);*/
+	}
+}
+
