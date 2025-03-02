@@ -1,17 +1,16 @@
-#include "main.h"
-#include "../include/IMAGE_PR.h"
+#include "../include/main.h"
 
 void drawMainPage()
 {
 	// ³õÊ¼»¯´°¿Ú
-	initgraph(screenWidth, screenHeight);
+	initgraph(windowWidth, windowHeight);
 
 	int viewportX = 0, viewportY = 0, MOVE_STEP = 10;
-	int  MAP_WIDTH = screenWidth * 3, MAP_HEIGHT = screenHeight * 3;
-	int  VIEW_WIDTH = screenWidth, VIEW_HEIGHT = screenHeight;
+	double  MAP_WIDTH = windowWidth * 3, MAP_HEIGHT = windowHeight * 3;
+	double  VIEW_WIDTH = windowWidth, VIEW_HEIGHT = windowHeight;
 	// ¼ÓÔØÍ¼Ïñ
-	IMAGE_PR gamebackground_img(_T(".\\resources\\images\\game_background.png"));
-	gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2, screenHeight * 3 / 2);
+	IMAGE_PR gamebackground_img(_T("..\\resources\\images\\game_background.png"),windowWidth, windowHeight);
+	//gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2, screenHeight * 3 / 2);
 
 	while (true) {
 		if (_kbhit())
@@ -37,7 +36,7 @@ void drawMainPage()
 				closegraph();
 			}
 			// ¿ªÊ¼Ë«»º³å
-			gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2 + viewportX, screenHeight * 3 / 2 + viewportY);
+		/*	gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2 + viewportX, screenHeight * 3 / 2 + viewportY);*/
 			EndBatchDraw(); // ½áÊøË«»º³å£¬Ë¢ÐÂÆÁÄ»
 		}
 		/*Sleep(10);*/

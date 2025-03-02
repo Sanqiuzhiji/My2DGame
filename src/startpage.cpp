@@ -1,32 +1,18 @@
-#include "main.h"
+#include "../include/main.h"
 #include "../include/IMAGE_PR.h"
 
-void drawStartPage()
-{
-	// 初始化窗口
-	initgraph(screenWidth, screenHeight);
+void drawStartPage() {
 
-	// 加载图像
-	IMAGE_PR startpage_img(_T(".\\resources\\images\\startpage.png"));
-	startpage_img.ShowOriginImage(0, 0);
+//载入资源
+IMAGE_PR startpage_img(_T("..\\resources\\images\\startpage.png"), windowWidth, windowHeight);
+IMAGE_PR startbutton_img(_T("..\\resources\\images\\startbutton.png"), STARTBUTTON_WIDTH, STARTBUTTON_HEIGHT);
 
-	IMAGE_PR startbutton_img(_T(".\\resources\\images\\startbutton.png"));
-	startbutton_img.ShowScalingImage(50, STARTBUTTON_X, STARTBUTTON_Y);
+//渲染窗口
+//std::cout << GetSystemMetrics(SM_CXSCREEN) << std::endl;
+Window MainWindow(windowWidth, windowHeight, 0, 0);
 
-	while (true)
-	{
-		if (MouseHit())
-		{  // 检查是否有鼠标消息
-			MOUSEMSG m = GetMouseMsg();  // 获取鼠标消息
-			if (m.x > startbutton_img.x_vertex_Img && m.x < startbutton_img.x_vertex_Img + startbutton_img.width_Img 
-				&& m.y > startbutton_img.y_vertex_Img && m.y < startbutton_img.y_vertex_Img + startbutton_img.height_Img 
-				&& m.uMsg == WM_LBUTTONDOWN)
-			{
-				// 进入主页面
-				drawMainPage();
-			}
-		}
-		Sleep(10);
-	}
+MainWindow.DrawImg(startpage_img, windowWidth / 2, windowHeight / 2);
+MainWindow.DrawImg(startbutton_img, STARTBUTTON_X, STARTBUTTON_Y);
+
 
 }
