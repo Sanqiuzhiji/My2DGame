@@ -8,9 +8,6 @@ void drawMainPage()
 	int viewportX = 0, viewportY = 0, MOVE_STEP = 10;
 	double  MAP_WIDTH = windowWidth * 3, MAP_HEIGHT = windowHeight * 3;
 	double  VIEW_WIDTH = windowWidth, VIEW_HEIGHT = windowHeight;
-	// º”‘ÿÕºœÒ
-	IMAGE_PR gamebackground_img(_T("..\\resources\\images\\game_background.png"),windowWidth, windowHeight);
-	//gamebackground_img.ShowScalingImage(screenWidth * 3, screenHeight * 3, screenWidth * 3 / 2, screenHeight * 3 / 2);
 
 	while (true) {
 		if (_kbhit())

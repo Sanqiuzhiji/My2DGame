@@ -1,9 +1,8 @@
 #include "../include/main.h"
 #include "../include/startpage.h"
 
-int main() {
-
-
+int main()
+{
     drawStartPage();
     while (true) {};
     //
