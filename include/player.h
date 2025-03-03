@@ -1,18 +1,13 @@
-//#pragma once
-//
-//#include "resource.h"
-//
-//class player
-//{
-//public:
-//	player(const TCHAR* path);
-//	~player();
-//
-//public:
-//	//int map_positionX;
-//	//int map_positionY;
-//
-//	/*IMAGE_PR player_image;*/
-//};
-//
-//
+#pragma once
+
+#include "OBJECT.h"
+class player: public OBJECT
+{
+
+public:
+	player(IMAGE* img, std::string _name, int x, int y);
+	~player();
+	int player_health;
+
+};
+

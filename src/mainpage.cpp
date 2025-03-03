@@ -5,7 +5,7 @@
 Resource  mainpage_img;
 void drawMainPage()
 {
-	mainpage_img.imageload(_T("..\\resources\\images\\mainpage.png"));
+	//mainpage_img.imageload(_T("..\\resources\\images\\mainpage.png"));
 	initgraph(windowWidth, windowHeight); // 初始化窗口
 
 	//startpage_img.ShowScalingImage(windowWidth, windowWidth); // 直接缩放

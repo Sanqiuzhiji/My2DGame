@@ -16,8 +16,8 @@ Resource startbutton_img;
 
 void drawStartPage()
 {
-	startpage_img.imageload(_T("..\\resources\\images\\startpage.png"));
-	startbutton_img.imageload(_T("..\\resources\\images\\startbutton.png"));
+	//startpage_img.imageload(_T("..\\resources\\images\\startpage.png"));
+	//startbutton_img.imageload(_T("..\\resources\\images\\startbutton.png"));
 
 	startpage_img.ShowScalingImage(windowWidth, windowWidth); // 直接缩放
 	startbutton_img.ShowScalingImage(STARTBUTTON_WIDTH, STARTBUTTON_HEIGHT); // 直接缩放

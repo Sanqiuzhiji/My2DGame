@@ -1,24 +1,19 @@
 #include "../include/resource.h"
-#include <filesystem>
-#include <string>
-#include <map>
-void Resource::imageload(const TCHAR* path)
+
+Resource::Resource()
 {
-	// 初始化成员变量
-	loadimage(&OriginImage, path);
-}
-void Resource::LoadImage(const std::string& name, const std::string& path) {
-	IMAGE img;
-	std::wstring wPath = std::filesystem::path(path).wstring();  // 自动转换
-	loadimage(&img, wPath.c_str());
-	images[name] = img;
+	std::cout << "Resource map ok" << std::endl;
 }
 
-
-IMAGE* Resource::GetImage(const std::string& name) {
-	return &images[name];
+void Resource::addimage(MyIMAGE* img)
+{ 
+	this->images[img->name] = img->MyImageSet;
 }
 
+IMAGE* Resource::GetImage(const std::string& name) 
+{
+	return *images[name];
+}
 
 //直接缩放
 void Resource::ShowScalingImage(int targetWidth, int targetHeight)
@@ -49,7 +44,7 @@ void Resource::ShowScalingImage(int targetWidth, int targetHeight)
 }
 
 
-//// 图像缩放并显示
+ ////图像缩放并显示
 //void IMAGE_PR::ShowScalingImage(int targetValue, bool isHeightFixed)
 //{
 //	float Width_Height_Ratio = (float)OriginImage.getwidth() / (float)OriginImage.getheight();  // 原始图像的宽高比

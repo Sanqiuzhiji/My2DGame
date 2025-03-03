@@ -28,7 +28,7 @@ bool Window::InitWindow(int width, int height)
 	//ShowWindow(hwnd, SW_SHOW);
 
 	initgraph(width, height);  // 初始化 EasyX 图形窗口
-	//hwnd = GetHWnd();  // 获取 EasyX 创建的窗口句柄	
+	hwnd = GetHWnd();  // 获取 EasyX 创建的窗口句柄	
 	//// 确保 hwnd 被正确初始化
 	//if (hwnd == nullptr) {
 	//	std::cout << "获取窗口句柄失败!" << std::endl;
@@ -37,7 +37,7 @@ bool Window::InitWindow(int width, int height)
 	//SetForegroundWindow(hwnd);   // 让窗口置顶
 	//SetFocus(hwnd);              // 让窗口获取焦点
 	setbkcolor(WHITE);         // 设置背景颜色
-	std::cout << "窗口初始化完成: " << title << std::endl;
+	std::cout << "窗口初始化完成: " << std::endl;
 	return true;
 }
 
@@ -66,8 +66,10 @@ void Window::DestroyWindow() {
 	}
 }
  //窗口是否仍然打开
-bool Window::IsOpen() {
-	if (hwnd == nullptr) {
+bool Window::IsOpen()
+{
+	if (hwnd == nullptr) 
+	{
 		return false;  // 窗口未打开
 	}
 	// 这里可以加一些额外的逻辑检查 hwnd 是否仍然有效

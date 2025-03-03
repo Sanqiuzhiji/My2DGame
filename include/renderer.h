@@ -4,15 +4,17 @@
 #include <memory>
 #include "Window.h"
 #include "Resource.h"
+
 class Window;
+
 class Renderer {
-private:
-    Window& window;
+
 public:
-    Renderer(Window& win);
-    void Clear();
-    void DrawImage(const std::string& name, int x, int y);
-    void Display();
+	Renderer(Window& win);
+	Window& window;
+	void Clear();
+	void DrawImage(const std::string& name, int x, int y);
+	void Display();
 };
 
 #endif  // RENDERER_H

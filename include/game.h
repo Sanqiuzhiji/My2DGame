@@ -9,18 +9,20 @@
 class Window;
 class Resource;
 class Renderer;
-class Game {
-private:
-    Window* window;
-    Resource* resource;
-    Renderer renderer;
+
+class Game
+{
+
 public:
-    Game(int windowWidth, int windowHeight);
-    ~Game();
+	Game(int windowWidth, int windowHeight);
+	~Game();
 
-    void Init();
-    void Run();
-
+	void Init();
+	void Run();
+private:
+	Window* window;
+	Resource* resource;
+	Renderer* renderer;
 
 };
 #endif
